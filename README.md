@@ -16,7 +16,7 @@ Utilizamos a metodologia **Kanban**, aplicada diretamente na aba **Projects** do
 1. Clone este repositório:
    ```bash
    git clone https://github.com/seu-usuario/nome-do-repositorio.git
-   cd nome-do-repositorio
+   cd Portfolio-Software-Engineering
    ```
 
 2. Instale as dependências:
