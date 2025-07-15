@@ -50,6 +50,18 @@ controle_estoque/
 
 ## Fluxograma
 Veja o funcionamento no arquivo `fluxograma.pdf`.
+=======
+## Instruções de Execução
+1. Clone este repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   cd Portfolio-Software-Engineering
+   ```
+
+2. Instale as dependências:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
 ## Justificativa para Mudança de Escopo
 Durante o projeto, decidiu-se adicionar um campo de prioridade nas tarefas, com a justificativa de permitir melhor ordenação e foco em entregas críticas. A alteração foi refletida no código, testes e Kanban.
