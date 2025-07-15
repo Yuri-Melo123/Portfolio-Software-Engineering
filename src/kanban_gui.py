@@ -6,6 +6,7 @@ import sqlite3
 KANBAN_STATUSES = ['A Fazer', 'Em Progresso', 'Concluído']
 DB_PATH = 'banco_de_dados.db'
 
+# Função para conectar ao banco de dados e criar tabelas se necessário
 def conectar_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -19,6 +20,7 @@ def conectar_db():
     conn.commit()
     return conn, cursor
 
+# Função para carregar as tarefas do banco de dados
 def carregar_tarefas():
     conn, cursor = conectar_db()
     tarefas = {status: [] for status in KANBAN_STATUSES}
@@ -28,6 +30,7 @@ def carregar_tarefas():
     conn.close()
     return tarefas
 
+# Função para adicionar uma nova tarefa
 def adicionar_tarefa_gui(atualizar_callback):
     titulo = simpledialog.askstring("Nova Tarefa", "Digite o título da tarefa:")
     if titulo:
@@ -37,6 +40,7 @@ def adicionar_tarefa_gui(atualizar_callback):
         conn.close()
         atualizar_callback()
 
+# Função para mover uma tarefa entre os status
 def mover_tarefa_gui(atualizar_callback):
     conn, cursor = conectar_db()
     cursor.execute("SELECT id, titulo, status FROM kanban")
@@ -53,6 +57,7 @@ def mover_tarefa_gui(atualizar_callback):
     tk.Label(selecao, text="Escolha uma tarefa para mover:").pack()
 
     for id_, titulo, status in tarefas:
+        # Função para mover a tarefa para um novo status
         def mover(id_=id_, status_atual=status):
             nova = [s for s in KANBAN_STATUSES if s != status_atual]
             escolha = simpledialog.askstring("Mover Para", f"Escolha novo status ({', '.join(nova)}):")
@@ -67,6 +72,7 @@ def mover_tarefa_gui(atualizar_callback):
                 messagebox.showerror("Erro", "Status inválido.")
         tk.Button(selecao, text=f"[{status}] {titulo}", command=mover).pack()
 
+# Função para exibir o quadro Kanban usando Tkinter
 def exibir_kanban_tk():
     root = tk.Toplevel()
     root.title("Quadro Kanban")
@@ -80,6 +86,7 @@ def exibir_kanban_tk():
         tk.Label(frame, text=status, font=('Arial', 12, 'bold')).pack()
         frames[status] = frame
 
+    # Preencher os frames com as tarefas
     def atualizar():
         for status, frame in frames.items():
             for widget in frame.winfo_children()[1:]:

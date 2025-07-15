@@ -5,6 +5,7 @@ import sqlite3
 KANBAN_STATUSES = ['A Fazer', 'Em Progresso', 'Concluído']
 DB_PATH = 'banco_de_dados.db'
 
+# Função para conectar ao banco de dados e criar tabelas se necessário
 def conectar_db():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
@@ -18,6 +19,7 @@ def conectar_db():
     conn.commit()
     return conn, cursor
 
+# Função para adicionar uma nova tarefa
 def adicionar_tarefa():
     titulo = input("Digite o título da tarefa: ")
     status = 'A Fazer'
@@ -27,6 +29,7 @@ def adicionar_tarefa():
     conn.close()
     print("Tarefa adicionada com sucesso!")
 
+# Função para visualizar as tarefas
 def visualizar_tarefas():
     conn, cursor = conectar_db()
     for status in KANBAN_STATUSES:
@@ -37,6 +40,7 @@ def visualizar_tarefas():
             print(f"[{tarefa[0]}] {tarefa[1]}")
     conn.close()
 
+# Função para mover uma tarefa entre os status
 def mover_tarefa():
     visualizar_tarefas()
     tarefa_id = input("\nDigite o ID da tarefa a ser movida: ")
@@ -54,6 +58,7 @@ def mover_tarefa():
     else:
         print("Opção inválida.")
 
+# Função para exibir o menu do Kanban
 def menu_kanban():
     while True:
         print("\n=== Quadro Kanban ===")

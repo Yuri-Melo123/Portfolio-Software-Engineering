@@ -7,7 +7,7 @@ from kanban_gui import exibir_kanban_tk
 usuario_logado = None
 perfil_logado = None
 
-# Verifica se o banco de dados e as tabelas existem, caso contrário, cria-os
+# Função para realizar o login do usuário
 def login():
     global usuario_logado, perfil_logado
     usuario = entry_usuario.get()
@@ -29,12 +29,12 @@ def login():
     else:
         messagebox.showerror("Erro", "Usuário ou senha incorretos")
 
-# Abre o menu principal após o login bem-sucedido
+# Função para abrir o menu principal após o login
 def abrir_menu():
     import menu
     menu.iniciar(usuario_logado, perfil_logado)
 
-# Tela de login usando Tkinter
+# Função para exibir a tela de login
 def tela_login():
     global root, entry_usuario, entry_senha
     root = tk.Tk()
