@@ -1,12 +1,9 @@
 import sqlite3
 import hashlib
 
-# utils/database.py
 def conectar():
     return sqlite3.connect("banco_de_dados.db")
 
-# Criação das tabelas no banco de dados
-# Se as tabelas já existirem, elas não serão recriadas
 def criar_tabelas():
     conn = conectar()
     cursor = conn.cursor()
@@ -33,6 +30,5 @@ def criar_tabelas():
     conn.commit()
     conn.close()
 
-# utils/seguranca.py
 def hash_senha(senha):
     return hashlib.sha256(senha.encode()).hexdigest()
