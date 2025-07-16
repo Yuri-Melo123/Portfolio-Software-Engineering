@@ -1,16 +1,13 @@
 # Sistema de Gerenciamento Ágil de Tarefas
 
-## Sobre o Projeto
+## Sobre o Projeto Original
 Sistema de controle de estoque desenvolvido em Python com interface gráfica usando Tkinter e banco de dados SQLite. O sistema permite autenticação de usuários, controle de permissões por perfil (admin/comum), cadastro, atualização e visualização de produtos com alerta de quantidade mínima.
 
-## Objetivo
+## Objetivo do Projeto Atual
 Desenvolver um sistema básico para gerenciamento de tarefas que permita visualizar, priorizar e monitorar o progresso das atividades de uma equipe ágil.
 
-## Escopo
-O sistema implementa um CRUD de tarefas com campos como título, descrição, prioridade e status. Além disso, incorpora controle de qualidade com testes automatizados e simulação de mudança de escopo.
-
 ## Metodologia Utilizada
-Utilizamos a metodologia **Kanban**, aplicada diretamente na aba **Projects** do GitHub com as colunas:
+Utilizamos a metodologia **Kanban** com as colunas:
 - A Fazer
 - Em Progresso
 - Concluído
@@ -22,6 +19,7 @@ Utilizamos a metodologia **Kanban**, aplicada diretamente na aba **Projects** do
 - Atualização de estoque
 - Visualização com destaque de produtos abaixo do mínimo
 - Cadastro de novos usuários (somente admin)
+- Gerenciamento de um quadro Kanban
 
 ## Tecnologias Utilizadas
 - Python 3
@@ -37,15 +35,22 @@ Utilizamos a metodologia **Kanban**, aplicada diretamente na aba **Projects** do
 
 ## Estrutura
 ```
-controle_estoque/
-│
-├── main.py
-├── menu.py
-├── utils.py
+Aplicação/
+├── docs/
+│   └── fluxograma.pdf
+├── src/
+│   ├── app.py
+│   ├── menu.py
+│   ├── kanban.py
+│   ├── kanban_gui.py
+│   ├── utils.py
+|   └── main.py
+├── tests/
+│   └── test_app.py
 ├── banco_de_dados.db (gerado automaticamente)
 ├── README.md
 ├── README.txt (Apresentação do controle de estoque)
-└── fluxograma.pdf
+└── requirements.txt
 ```
 
 ## Fluxograma
@@ -64,7 +69,7 @@ Veja o funcionamento no arquivo `fluxograma.pdf`.
    ```
 
 ## Justificativa para Mudança de Escopo
-Durante o projeto, decidiu-se adicionar um campo de prioridade nas tarefas, com a justificativa de permitir melhor ordenação e foco em entregas críticas. A alteração foi refletida no código, testes e Kanban.
+Durante o projeto, decidiu-se adicionar um campo de prioridade nas tarefas, para permitir uma melhor ordenação e foco em entregas críticas. A alteração foi refletida no código, testes e Kanban.
 
 ## Aprendizados
 - Prática com interfaces Tkinter
