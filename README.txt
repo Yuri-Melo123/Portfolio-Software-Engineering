@@ -7,6 +7,7 @@
 - Atualização de estoque
 - Visualização com alerta de baixo estoque
 - Cadastro de novos usuários (somente admin)
+- Gerenciamento de quadro Kanban
 
 ## Requisitos:
 - Python 3
